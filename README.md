@@ -13,7 +13,8 @@ Dentro del repositorio vas a encontrar distintas carpetas. Cada carpeta tiene el
 - AL
   - Ejemplos
   - Practicas
-
+- OTROS (carpeta para subir códigos externos a la asignaturas pero que podría ser de utilidad para otros colaboradores)
+ 
 # Instrucciones:
 1.- Clona el repositorio en tu dispositivo
 2.- Abre el proyecto
