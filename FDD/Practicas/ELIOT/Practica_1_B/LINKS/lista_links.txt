@@ -1,0 +1,12 @@
+Links para los ejercicios de practica
+
+1.- Compuerta OR =>
+https://www.edaplayground.com/x/iDTs
+
+
+2.- Compuerta NAND =>
+https://www.edaplayground.com/x/DeFk
+
+
+3.- Función =>
+https://www.edaplayground.com/x/Z3EJ
