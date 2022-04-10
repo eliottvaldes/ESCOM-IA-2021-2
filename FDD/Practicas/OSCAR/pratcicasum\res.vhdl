@@ -25,7 +25,7 @@ architecture Behavioral of todo is
 signal A,B: STD_LOGIC_VECTOR(3 DOWNTO 0);
 signal seg,seg1,seg2,seg3: STD_LOGIC_VECTOR(3 DOWNTO 0);
 signal resta,nueve,ocho,siete,seis: STD_LOGIC_VECTOR(3 DOWNTO 0);
-signal mag: STD_LOGIC_VECTOR(2 DOWNTO 0);
+signal mag,mag1: STD_LOGIC_VECTOR(2 DOWNTO 0);
 component adder4b
 PORT(
 A,B:IN STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -90,15 +90,17 @@ resta(3)<=not unologico;
 A1:botones
 port map(bo0,bo1,bo2,bo3,bo4,bo5,bo6,bo7,bo8,bo9,push0,A);
 B1:botones
-port map(bo0,bo1,bo2,bo3,bo4,bo5,bo6,bo7,bo8,bo9,push1,B);
+port map(bo0,bo1,bo2,bo3,bo4,bo5,bo6,bo7,bo8,bo9,push1 and push0,B);
 U0:adder4b
 PORT MAP(A,(push0 and(B(0) xor menos),push0 and(B(1)xor menos),push0 and(B(2)xor menos),push0 and(B(3)xor menos)),seg,CI,seg3(3));
 Com:compardor
 port map(seg,nueve,mag(0),mag(1),mag(2));
+Commulti:compardor
+port map(seg,(unologico,unologico,not unologico,not unologico),mag1(0),mag1(1),mag1(2));
 U1:adder4b
 PORT MAP(seg,((resta(0)xor unologico),(resta(1)xor unologico),(resta(2)xor unologico),(resta(3)xor unologico)),seg2,CI,seg3(0));
 M0:multi
-port map(A(0),A(1),B(0),B(1),seg1);
+port map(A(0)and mag1(2),A(1)and mag1(2),B(0)and mag1(2),B(1)and mag1(2),seg1);
 bcd:bdc7
 port map((((seg(0)and not mag(0))or (seg2(0)and mag(0))or ((seg1(0)and multiplicacion)and not(mas xor menos)))and not seg3(3))or ((seg3(3)and seg(0))) ,(((seg(1)and not mag(0))or (seg2(1)and mag(0))or ((seg1(1)and multiplicacion)and not(mas xor menos)))and not seg3(3)) or ((seg3(3)and not seg(1))) or ((seg3(3)and seg(0))),(((seg(2)and not mag(0))or(seg2(2)and mag(0))or ((seg1(2)and multiplicacion)and not(mas xor menos)))and not seg3(3))or ((seg3(3)and not seg(1))) or ((seg3(3)and seg(0))),(((seg(3)and not mag(0))or (seg2(3)and mag(0))or ((seg1(3) and multiplicacion)and not(mas xor menos)))and not seg3(3))or ((seg3(3)and seg(1))),Ax0,Bx0,C0,D0,E0,F0,G0);
 bcd1:bdc7
