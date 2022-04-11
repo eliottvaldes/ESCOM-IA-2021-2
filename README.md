@@ -1,5 +1,5 @@
-# IA-2IV1
-Repositorio del grupo 2IV1 de IA-ESCOM para subir diferentes códigos desarrollados durante el semestre.
+# IA-ESCOM-2021-2
+Repositorio de IA-ESCOM-2021 para subir los diferentes códigos desarrollados durante el segundo semestre de la carrera (Para ambos turnos).
 
 # Observaciones
 Dentro del repositorio vas a encontrar distintas carpetas. Cada carpeta tiene el nombre de una asignatura en la cual se van a ir agregando los diferentes códigos que se vayan asignando en clases. 
@@ -19,12 +19,14 @@ Dentro del repositorio vas a encontrar distintas carpetas. Cada carpeta tiene el
 # Instrucciones:
 1.- Clona el repositorio en tu dispositivo
 2.- Abre el proyecto
-3.- Por cada carpeta de materia crea una nueva carpeta con tu nombre de pila
-4.- Por cada subcarpeta (Ejemplos y Practicas dentro de la carpeta general de la materia) crea una carpeta con tu nombre de pila
-5.- Desarrolla el código dentro de tu propia carpeta y subcarpeta según sea el caso
-6.- ¡Listo! Ahora puedes desarrollar y compartir ideas desde tu código además de comenzar a usar herramientas indispensables en la industria (Git y GitHub).
+3.- Selecciona la rama de desarrollo de acuerdo a tu turno (Puedes hacerlo con el comando 'git checkout rama_de_asignada_a_tu_turno' )
+4.- Por cada carpeta de materia crea una nueva carpeta con tu nombre de pila
+5.- Por cada subcarpeta (Ejemplos y Practicas dentro de la carpeta general de la materia) crea una carpeta con tu nombre de pila
+6.- Desarrolla el código dentro de tu propia carpeta y subcarpeta según sea el caso
+7.- ¡Listo! Ahora puedes desarrollar y compartir ideas desde tu código además de comenzar a usar herramientas indispensables en la industria (Git y GitHub).
 
 ## IMPORTANTE
+NO trabajes sobre la rama 'main', recuerda cambiar de rama antes de comensar a desarrollar (para verificar en cual rama estas puedes hacerlo con el comando  'git branch' y luego seleccionar tu rama con el comando 'git checkout rama_de_asignada_a_tu_turno')
 NO realices modificaciones a los desarrollos de otros colaboradores a menos de tener autorización del propietario.
 La modificación a los desarrollos implica:
 - Cambios totales o parciales de archivos individuales o en carpetas completas.
