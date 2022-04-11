@@ -1,4 +1,4 @@
-# IA-ESCOM-2021-2 (MATUTINO)
+# IA-ESCOM-2021-2
 Repositorio de IA-ESCOM-2021 para subir los diferentes códigos desarrollados durante el segundo semestre de la carrera (Para ambos turnos).
 
 # Observaciones
