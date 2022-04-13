@@ -21,7 +21,7 @@ typedef struct Nodo{
         Nodo *ant;
 }Nodo;
 
-void ins_listini(Nodo **lista,Dato dato);
+void ins_listini(Nodo **lista,Nodo **fin,Dato dato);
 void most_list(Nodo *lista);
 bool ins_listfin(Nodo **lista,Dato dato);
 void ins_listpos(Nodo **lista,Dato dato, int pos);
@@ -36,6 +36,8 @@ Dato istr();
 
 int main(){
     Nodo *inicio=NULL;
+    Nodo *fin=NULL;
+    fin=new Nodo;
     inicio=new Nodo();
     inicio->ant=NULL;
     int cond=0,tam,pos;
@@ -50,7 +52,7 @@ int main(){
         case 1:
             
             num=istr();
-            ins_listini(&inicio,num);
+            ins_listini(&inicio,&fin,num);
             break;
         case 2:
             
@@ -120,48 +122,43 @@ int main(){
 
 
 
-void ins_listini(Nodo **lista,Dato dato){
+void ins_listini(Nodo **inicio,Nodo **fin,Dato dato){
       Nodo *nuevo_nodo=new Nodo();//1
       nuevo_nodo->sig=NULL;//2
+      nuevo_nodo->ant=NULL;
       nuevo_nodo->dato=dato;//3
       
       
-      if (lista==NULL)
+      if ((*inicio)==NULL)
       {    
-          nuevo_nodo->ant=NULL;
-          (*lista)->sig=nuevo_nodo;
+          (*inicio)=nuevo_nodo;
+          (*fin)=nuevo_nodo;
       }else{
-          nuevo_nodo->sig=(*lista)->sig;
-          nuevo_nodo->ant=NULL;
-
-          (*lista)->sig=nuevo_nodo;
+          nuevo_nodo->sig=(*inicio);
+          (*inicio)->ant=nuevo_nodo;
+          (*inicio)=nuevo_nodo;
+          
       }
       
 }
 
 
-bool ins_listfin(Nodo **lista,Dato dato){
-    Nodo *iterador;
+bool ins_listfin(Nodo **inicio,Nodo **fin,Dato dato){
     Nodo *nuevo_nodo=new Nodo();
     Nodo *antes;
-    iterador=*lista;
-    if (iterador->sig==NULL)
+    nuevo_nodo->sig=NULL;//2
+    nuevo_nodo->ant=NULL;
+    if (*inicio==NULL)
     {
-        nuevo_nodo->ant=NULL;
-        (*lista)->sig=nuevo_nodo;
+        (*inicio)=nuevo_nodo;
+        (*fin)=nuevo_nodo;
         return true;
     }
+    nuevo_nodo->ant=*fin;
+    (*fin)->sig=nuevo_nodo;
+    (*fin)=nuevo_nodo;
     
-    while (iterador->sig!=NULL)
-    {
-        antes=iterador;
-        iterador=iterador->sig;
-    }
     
-    nuevo_nodo->sig=NULL;
-    iterador->sig=nuevo_nodo;
-    nuevo_nodo->ant=antes;
-    nuevo_nodo->dato=dato;
     return true;
     
 }
@@ -266,13 +263,20 @@ void elim_pos(Nodo **Lista,int pos){
 }
 
 
-bool desp_lat(Nodo **Lista){
+bool desp_lat(Nodo **inicio,Nodo **fin){
     int cond=1,contador=1;
-    Nodo *iterador=*Lista;
+    Nodo *iterador=*inicio;
     string opt;
     bool dir;
-    int tam=sizeof_nodo(*Lista);
+    int tam=sizeof_nodo(*inicio);
     cout<<"Desplazamiento lateral"<<endl<<endl;
+    cout<<"Quieres empezar por el inicio o el final?";
+    cin>>opt;
+    if (opt[0]==d||opt[0]==D)
+    {
+        /* code */
+    }
+    
     cout<<"Actualmente se encuentra en pos "<<contador<<endl;
     iterador=iterador->sig;
     cout<<(*iterador);
