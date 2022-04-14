@@ -272,10 +272,12 @@ bool desp_lat(Nodo **inicio,Nodo **fin){
     cout<<"Desplazamiento lateral"<<endl<<endl;
     cout<<"Quieres empezar por el inicio o el final?";
     cin>>opt;
-    if (opt[0]==d||opt[0]==D)
+    if (opt[0]=='d'||opt[0]=='D')
     {
         /* code */
-    }
+    }else if(opt[0]=='I'||opt[0]=='i'){
+
+    
     
     cout<<"Actualmente se encuentra en pos "<<contador<<endl;
     iterador=iterador->sig;
@@ -326,15 +328,14 @@ bool desp_lat(Nodo **inicio,Nodo **fin){
         }
         cout<<endl;
         cout<<(*iterador);
-        
+    
 
-        cout<<"Deseas salir al menu principal? 0.-si  1.- no"<<endl;
-        cin>>cond;
-    } while (cond==1);
+    
+    } while (opt!="salir");
     
 
 
-}
+}}
 
 
 ostream& operator<<(ostream& print,Nodo list){
