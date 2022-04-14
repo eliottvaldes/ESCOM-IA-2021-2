@@ -12,6 +12,8 @@
 using namespace std;
 
 int main(){
+    Nodo *inicio;
+    inicio=new Nodo();
     stack<char> signo;
     string cadena;
     bool flag=true;
@@ -26,13 +28,16 @@ int main(){
         {
         case '(':
             signo.push('(');
+            //pila_push(&inicio,'(');
             break;
         case '[':
             signo.push('[');
+            //pila_push(&inicio,'[');
             break;
         case ')':
-            if (signo.top()=='(')
+            if (signo.top()=='(') //if(inicio->caract=='(')
             {
+                //pila_pop(&inicio);
                 signo.pop();
                 flag=true;
             }else{
@@ -41,7 +46,9 @@ int main(){
             
             break;
         case ']':
-            if(signo.top()=='['){
+            if(signo.top()=='[')//if(inicio->caract=='[')
+            {
+                //pila_pop(&inicio);
                 signo.pop();
                 flag=true;
             }else{
