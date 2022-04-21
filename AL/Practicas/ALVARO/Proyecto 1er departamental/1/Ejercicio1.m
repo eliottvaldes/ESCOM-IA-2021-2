@@ -16,5 +16,11 @@ switch opt
     otherwise
         fprintf("Opcion invalida\n")
 end
-
+%%Solucion con b aumentado .005
+vectorc=[.005;.005;.005];
+vector=vector+vectorc;
+disp(vector)
+MatrizAmp=[matriz vector];
+fprintf("Añadiendo .005 a b, se obtiene que ")
+vecSol=Elim_gaussiana(MatrizAmp);
 

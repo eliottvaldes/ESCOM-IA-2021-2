@@ -1,0 +1,6 @@
+function matrixinv=inversa(x)
+    sz=size(x);
+    
+    
+end
+
