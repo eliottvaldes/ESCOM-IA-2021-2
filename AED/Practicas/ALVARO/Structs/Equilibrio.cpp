@@ -8,7 +8,7 @@
 #include<string>
 #include<stack>
 #include<stdlib.h>
-#include<C:\Users\Montero\Desktop\Algoritmos\Equilibrio\equilibrio.h>
+#include<C:\Users\Montero\Documents\IA-ESCOM-2021-2\AED\Practicas\ALVARO\Structs\equilibrio.h>
 using namespace std;
 
 int main(){
