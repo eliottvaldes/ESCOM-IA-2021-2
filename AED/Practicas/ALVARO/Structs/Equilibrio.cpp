@@ -8,15 +8,14 @@
 #include<string>
 #include<stack>
 #include<stdlib.h>
-#include<C:\Users\Montero\Documents\IA-ESCOM-2021-2\AED\Practicas\ALVARO\Structs\equilibrio.h>
+#include<C:\Users\Montero\Desktop\REPOSITORIO\Algoritmos\Equilibrio\equilibrio.h>
 using namespace std;
 
 int main(){
-    Nodo *inicio;
-    inicio=new Nodo();
+    Nodo *inicio=nullptr;
     stack<char> signo;
     string cadena;
-    bool flag=true;
+    bool flag=true,sflag=true;
     int tam;
     cout<<"Introduce un string para ser analizado"<<endl;
     cin>>cadena;
@@ -27,38 +26,38 @@ int main(){
         switch (cadena[i])
         {
         case '(':
-            signo.push('(');
-            //pila_push(&inicio,'(');
+            pila_push(&inicio,'(');
             break;
         case '[':
-            signo.push('[');
-            //pila_push(&inicio,'[');
+            
+            pila_push(&inicio,'[');
             break;
         case ')':
-        if(signo.empty()){
+             if(pila_empty(inicio)){//checamos si nuestra pila está vacia
                 flag=false;
+                sflag=false;
             }
-            else if (signo.top()=='(') //if(inicio->caract=='(')
+            else if(inicio->caract=='(')
             {
-                //pila_pop(&inicio);
-                signo.pop();
+                pila_pop(&inicio);
                 flag=true;
             }else{
                 flag=false;
+                sflag=false;
             }
             
             break;
         case ']':
-            if(signo.empty()){
+            if(pila_empty(inicio)){
                 flag=false;
             }
-            else if(signo.top()=='[')//if(inicio->caract=='[')
+            else if(inicio->caract=='[')
             {
-                //pila_pop(&inicio);
-                signo.pop();
+                pila_pop(&inicio);
                 flag=true;
             }else{
                 flag=false;
+                sflag=false;
             }
             break;
         
@@ -67,10 +66,12 @@ int main(){
         }
         
     }
-    if(signo.size()>0){
+    if (pila_size(inicio)>0)
+    {
         flag=false;
     }
-    if(flag){
+    
+    if(flag&&sflag){
         cout<<"Existe equilibrio"<<endl;
     }else{
         cout<<"No existe equilibrio"<<endl;

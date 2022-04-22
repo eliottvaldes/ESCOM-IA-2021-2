@@ -13,9 +13,10 @@ typedef struct Nodo{
     Nodo *sig;
 }Nodo;
 
-string pila_push(Nodo **inicio,char dato){
+void pila_push(Nodo **inicio,char dato){
     Nodo *n_caract;
     n_caract=new Nodo();
+    n_caract->caract=dato;
     n_caract->sig=NULL;
     if (*inicio==NULL)
     {
@@ -28,7 +29,7 @@ string pila_push(Nodo **inicio,char dato){
     
 
 }
-string pila_pop(Nodo **inicio){
+void pila_pop(Nodo **inicio){
     Nodo *aux;
     Nodo *aux2;
     aux=(*inicio);
@@ -38,3 +39,30 @@ string pila_pop(Nodo **inicio){
     
 }
 
+bool pila_empty(Nodo *inicio){
+    bool retVal;
+    if (inicio==nullptr)
+    {
+        retVal=true;
+    }else{
+        retVal=false;
+    }
+    return retVal;
+}
+
+int pila_size(Nodo *inicio){
+    int cont;
+    Nodo *iterador;
+    iterador=inicio;
+    if(iterador==NULL){
+        return 0;
+    }else{
+        while (iterador->sig!=NULL)
+        {
+        iterador=iterador->sig;
+        cont++;
+        }
+    }
+    
+    return cont;
+}
