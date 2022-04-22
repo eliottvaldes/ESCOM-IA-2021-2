@@ -35,7 +35,10 @@ int main(){
             //pila_push(&inicio,'[');
             break;
         case ')':
-            if (signo.top()=='(') //if(inicio->caract=='(')
+        if(signo.empty()){
+                flag=false;
+            }
+            else if (signo.top()=='(') //if(inicio->caract=='(')
             {
                 //pila_pop(&inicio);
                 signo.pop();
@@ -46,7 +49,10 @@ int main(){
             
             break;
         case ']':
-            if(signo.top()=='[')//if(inicio->caract=='[')
+            if(signo.empty()){
+                flag=false;
+            }
+            else if(signo.top()=='[')//if(inicio->caract=='[')
             {
                 //pila_pop(&inicio);
                 signo.pop();
