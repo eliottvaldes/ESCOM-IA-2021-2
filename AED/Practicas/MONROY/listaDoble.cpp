@@ -216,12 +216,36 @@ void agregarCustom(Nodo **inicio, Nodo **fin, int posiciones)
 
 void imprimirInicio(Nodo *inicio)
 {
-    
+    if (inicio == NULL)
+    {
+        cout << "La inicio esta vacia" << endl;
+    }
+    else
+    {
+        Nodo *itera = inicio;
+        while (itera != NULL)
+        {
+            cout << (*itera);
+            itera = itera->siguiente;
+        }
+    }
 }
 
 void imprimirFin(Nodo *fin)
 {
-    
+    if (fin == NULL)
+    {
+        cout << "La lista esta vacia" << endl;
+    }
+    else
+    {
+        Nodo *itera = fin;
+        while (itera != NULL)
+        {
+            cout << (*itera);
+            itera = itera->anterior;
+        }
+    }
 }
 
 void eliminarInicio(Nodo **inicio, Nodo **fin)
