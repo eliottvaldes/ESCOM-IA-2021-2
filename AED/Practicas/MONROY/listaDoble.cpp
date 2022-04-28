@@ -284,7 +284,47 @@ void eliminarFin(Nodo **inicio, Nodo **fin)
 
 void eliminarCustom(Nodo **inicio, Nodo **fin, int posiciones)
 {
-    
+    if (posiciones == 0)
+    {
+        cout << "Lista vacia" << endl;
+    }
+    else
+    {
+        int contador = 1, position;
+        cout << "Cual elemento de la lista quieres eliminar";
+        cout << " hay " << posiciones - 1 << " disponibles" << endl;
+        cin >> position;
+        if (position > posiciones)
+        {
+            cout << "El elemento no existe" << endl;
+        }
+        else
+        {
+            Nodo *itera1 = *inicio;
+            Nodo *itera2 = *inicio;
+            Nodo *itera3 = *fin;
+            Nodo *itera4 = *fin;
+            int itera3pos = posiciones - position;
+            while (contador < position - 1)
+            {
+                itera1 = itera1->siguiente;
+                contador++;
+            }
+            itera2 = itera1->siguiente;
+            itera1->siguiente = itera1->siguiente->siguiente;
+            delete itera2;
+
+            contador = 1;
+            while (contador < itera3pos - 1)
+            {
+                itera2 = itera3->anterior;
+                contador++;
+            }
+            itera4 = itera3->anterior;
+            itera3->anterior = itera3->anterior->anterior;
+            delete itera4;
+        }
+    }
 }
 
 ostream &operator<<(ostream &output, Nodo estructura)
