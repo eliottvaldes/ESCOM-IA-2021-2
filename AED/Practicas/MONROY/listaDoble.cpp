@@ -250,7 +250,19 @@ void imprimirFin(Nodo *fin)
 
 void eliminarInicio(Nodo **inicio, Nodo **fin)
 {
-    
+    Nodo *aux = *inicio;
+    *inicio = (*inicio)->siguiente;
+    delete aux;
+    Nodo *itera1 = (*fin)->anterior;
+    Nodo *itera2;
+    while (itera1->anterior != NULL)
+    {
+        itera2 = itera1;
+        itera1 = itera1->anterior;
+    }
+    itera2->anterior = NULL;
+    delete itera1;
+    cout << "Nodo eliminado" << endl;
 }
 
 void eliminarFin(Nodo **inicio, Nodo **fin)
