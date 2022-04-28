@@ -172,7 +172,46 @@ int posicionesDisp(Nodo *inicio)
 
 void agregarCustom(Nodo **inicio, Nodo **fin, int posiciones)
 {
-    
+    Nodo *nuevo = new Nodo;
+    if (posiciones == 0)
+    {
+        cout << "lista vacia" << endl;
+    }
+    else
+    {
+        pedirNodo(nuevo);
+        int contador = 1, position, itera2pos;
+        cout << "En que posicion deseas agregar el nodo";
+        cout << " hay " << posiciones << " disponibles" << endl;
+        cin >> position;
+        if (position > posiciones)
+        {
+            cout << "La posicion excede los nodos ya creados" << endl;
+        }
+        else
+        {
+            Nodo *itera = *inicio;
+            Nodo *itera2 = *fin;
+            itera2pos = posiciones - position;
+            while (contador < position - 1)
+            {
+                itera = itera->siguiente;
+                contador++;
+            }
+            contador = 1;
+            while (contador < itera2pos - 1)
+            {
+                itera2 = itera2->siguiente;
+                contador++;
+            }
+
+            nuevo->siguiente = itera2;
+            itera2->anterior = nuevo;
+            nuevo->anterior = itera;
+            itera->siguiente = nuevo;
+            cout << "Nodo guardado" << endl;
+        }
+    }
 }
 
 void imprimirInicio(Nodo *inicio)
