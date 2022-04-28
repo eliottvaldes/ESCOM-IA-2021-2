@@ -129,26 +129,7 @@ void agregarInicio(Nodo **inicio, Nodo **fin)
 
 void agregarFin(Nodo **inicio, Nodo **fin)
 {
-    Nodo *nuevo = new Nodo;
-    pedirNodo(nuevo);
-    if (*fin == NULL)
-    {
-        *inicio = nuevo;
-        *fin = nuevo;
-        cout << "Nodo guardado" << endl;
-    }
-    else
-    {
-        Nodo *itera = *inicio;
-        while (itera->siguiente != NULL)
-        {
-            itera = itera->siguiente;
-        }
-        itera->siguiente = nuevo;
-        nuevo->anterior = *fin;
-        *fin = nuevo;
-        cout << "Nodo guardado" << endl;
-    }
+    
 }
 
 int posicionesDisp(Nodo *inicio)
@@ -172,80 +153,17 @@ int posicionesDisp(Nodo *inicio)
 
 void agregarCustom(Nodo **inicio, Nodo **fin, int posiciones)
 {
-    Nodo *nuevo = new Nodo;
-    if (posiciones == 0)
-    {
-        cout << "lista vacia" << endl;
-    }
-    else
-    {
-        pedirNodo(nuevo);
-        int contador = 1, position, itera2pos;
-        cout << "En que posicion deseas agregar el nodo";
-        cout << " hay " << posiciones << " disponibles" << endl;
-        cin >> position;
-        if (position > posiciones)
-        {
-            cout << "La posicion excede los nodos ya creados" << endl;
-        }
-        else
-        {
-            Nodo *itera = *inicio;
-            Nodo *itera2 = *fin;
-            itera2pos = posiciones - position;
-            while (contador < position - 1)
-            {
-                itera = itera->siguiente;
-                contador++;
-            }
-            contador = 1;
-            while (contador < itera2pos - 1)
-            {
-                itera2 = itera2->siguiente;
-                contador++;
-            }
-
-            nuevo->siguiente = itera2;
-            itera2->anterior = nuevo;
-            nuevo->anterior = itera;
-            itera->siguiente = nuevo;
-            cout << "Nodo guardado" << endl;
-        }
-    }
+    
 }
 
 void imprimirInicio(Nodo *inicio)
 {
-    if (inicio == NULL)
-    {
-        cout << "La inicio esta vacia" << endl;
-    }
-    else
-    {
-        Nodo *itera = inicio;
-        while (itera != NULL)
-        {
-            cout << (*itera);
-            itera = itera->siguiente;
-        }
-    }
+    
 }
 
 void imprimirFin(Nodo *fin)
 {
-    if (fin == NULL)
-    {
-        cout << "La lista esta vacia" << endl;
-    }
-    else
-    {
-        Nodo *itera = fin;
-        while (itera != NULL)
-        {
-            cout << (*itera);
-            itera = itera->anterior;
-        }
-    }
+    
 }
 
 void eliminarInicio(Nodo **inicio, Nodo **fin)
