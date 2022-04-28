@@ -129,7 +129,26 @@ void agregarInicio(Nodo **inicio, Nodo **fin)
 
 void agregarFin(Nodo **inicio, Nodo **fin)
 {
-    
+    Nodo *nuevo = new Nodo;
+    pedirNodo(nuevo);
+    if (*fin == NULL)
+    {
+        *inicio = nuevo;
+        *fin = nuevo;
+        cout << "Nodo guardado" << endl;
+    }
+    else
+    {
+        Nodo *itera = *inicio;
+        while (itera->siguiente != NULL)
+        {
+            itera = itera->siguiente;
+        }
+        itera->siguiente = nuevo;
+        nuevo->anterior = *fin;
+        *fin = nuevo;
+        cout << "Nodo guardado" << endl;
+    }
 }
 
 int posicionesDisp(Nodo *inicio)
