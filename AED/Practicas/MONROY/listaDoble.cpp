@@ -267,7 +267,19 @@ void eliminarInicio(Nodo **inicio, Nodo **fin)
 
 void eliminarFin(Nodo **inicio, Nodo **fin)
 {
-    
+    Nodo *aux = *fin;
+    *fin = (*fin)->anterior;
+    delete aux;
+    Nodo *itera1 = (*inicio)->siguiente;
+    Nodo *itera2;
+    while (itera1->siguiente != NULL)
+    {
+        itera2 = itera1;
+        itera1 = itera1->siguiente;
+    }
+    itera2->siguiente = NULL;
+    delete itera1;
+    cout << "Nodo eliminado" << endl;
 }
 
 void eliminarCustom(Nodo **inicio, Nodo **fin, int posiciones)
