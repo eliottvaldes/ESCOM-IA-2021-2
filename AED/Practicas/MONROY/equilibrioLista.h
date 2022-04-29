@@ -5,6 +5,7 @@
 */
 
 #include <iostream>
+
 using namespace std;
 
 struct Nodo
@@ -38,9 +39,30 @@ void lista_pop(Nodo **lista)
     *lista = (*lista)->sig;
     delete aux;
 }
-int lista_top(Nodo *lista)
+char lista_top(Nodo *lista)
 {
     return lista->caracter;
 }
-void lista_empty(Nodo *);
-void lista_size(Nodo *);
+int lista_empty(Nodo *lista)
+{
+    int tam = 0;
+    Nodo *itera = lista;
+    while (itera != NULL)
+    {
+        itera = itera->sig;
+        tam++;
+    }
+    return tam;
+}
+
+int lista_size(Nodo *lista)
+{
+    int tam = 0;
+    Nodo *itera = lista;
+    while (itera != NULL)
+    {
+        itera = itera->sig;
+        tam++;
+    }
+    return tam;
+}

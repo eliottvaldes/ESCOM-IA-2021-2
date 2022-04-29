@@ -6,7 +6,7 @@
 
 #include "equilibrioLista.h"
 
-void equilibrio();
+int equilibrio();
 
 int main()
 {
@@ -33,7 +33,7 @@ int main()
     } while (opcionUsuario != 2);
     return (0);
 }
-void equilibrio()
+int equilibrio()
 {
     Nodo *lista = NULL;
     string expresion;
@@ -48,5 +48,72 @@ void equilibrio()
             lista_push(&lista, caracter);
             continue;
         }
+        if (caracter == ')')
+        {
+            char pos = lista_top(lista);
+            if (lista_empty(lista) == 0)
+            {
+                cout << "Expresion no balanceada" << endl;
+                return (0);
+            }
+            else if (pos == '(')
+            {
+                lista_pop(&lista);
+                continue;
+            }
+            else
+            {
+                cout << "Expresion no balanceada" << endl;
+                continue;
+            }
+        }
+        else if (caracter == ']')
+        {
+            char pos = lista_top(lista);
+            if (lista_empty(lista))
+            {
+                cout << "Expresion no balanceada" << endl;
+                return (0);
+            }
+            else if (pos == '[')
+            {
+                lista_pop(&lista);
+                continue;
+            }
+            else
+            {
+                cout << "Expresion no balanceada" << endl;
+                continue;
+            }
+        }
+        else if (caracter == '}')
+        {
+            char pos = lista_top(lista);
+            if (lista_empty(lista))
+            {
+                cout << "Expresion no balanceada" << endl;
+                return (0);
+            }
+            else if (pos == '{')
+            {
+                lista_pop(&lista);
+                continue;
+            }
+            else
+            {
+                cout << "Expresion no balanceada" << endl;
+                continue;
+            }
+        }
+    }
+    int tam = lista_size(lista);
+    if (tam == 0)
+    {
+        cout << "Expresion balanceada" << endl;
+    }
+    else
+    {
+        cout << "Expresion no balanceada" << endl;
     }
 }
+
