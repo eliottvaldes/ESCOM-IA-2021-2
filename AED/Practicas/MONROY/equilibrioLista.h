@@ -41,23 +41,34 @@ void lista_pop(Nodo **lista)
 }
 char lista_top(Nodo *lista)
 {
+    if (lista == NULL)
+    {
+        return(0);
+    }
     return lista->caracter;
 }
-int lista_empty(Nodo *lista)
+bool lista_empty(Nodo *lista)
 {
-    int tam = 0;
+    int tam = 1;
     Nodo *itera = lista;
     while (itera != NULL)
     {
         itera = itera->sig;
         tam++;
     }
-    return tam;
+    if (tam < 1 )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 int lista_size(Nodo *lista)
 {
-    int tam = 0;
+    int tam = 1;
     Nodo *itera = lista;
     while (itera != NULL)
     {
