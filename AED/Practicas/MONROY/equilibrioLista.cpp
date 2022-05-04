@@ -51,7 +51,7 @@ int equilibrio()
         if (caracter == ')')
         {
             char pos = lista_top(lista);
-            if (lista_empty(lista) == 0)
+            if (lista_empty(lista))
             {
                 cout << "Expresion no balanceada" << endl;
                 return (0);
@@ -64,7 +64,7 @@ int equilibrio()
             else
             {
                 cout << "Expresion no balanceada" << endl;
-                continue;
+                return(0);
             }
         }
         else if (caracter == ']')
@@ -83,7 +83,7 @@ int equilibrio()
             else
             {
                 cout << "Expresion no balanceada" << endl;
-                continue;
+                return(0);
             }
         }
         else if (caracter == '}')
@@ -102,12 +102,12 @@ int equilibrio()
             else
             {
                 cout << "Expresion no balanceada" << endl;
-                continue;
+                return(0);
             }
         }
     }
     int tam = lista_size(lista);
-    if (tam == 0)
+    if (tam > 0)
     {
         cout << "Expresion balanceada" << endl;
     }
@@ -116,4 +116,3 @@ int equilibrio()
         cout << "Expresion no balanceada" << endl;
     }
 }
-
