@@ -26,7 +26,7 @@ Dentro del repositorio vas a encontrar distintas carpetas. Cada carpeta tiene el
 7. ¡Listo! Ahora puedes desarrollar y compartir ideas desde tu código además de comenzar a usar herramientas indispensables en la industria (Git y GitHub).
 
 ## IMPORTANTE
-NO trabajes sobre la rama 'main', recuerda cambiar de rama antes de comensar a desarrollar (para verificar en cual rama estas puedes hacerlo con el comando  'git branch' y luego seleccionar tu rama con el comando 'git checkout rama_de_asignada_a_tu_turno')
+NO trabajes sobre la rama 'main', recuerda cambiar de rama antes de comenzar a desarrollar (para verificar en cual rama estas puedes hacerlo con el comando  'git branch' y luego seleccionar tu rama con el comando 'git checkout rama_de_asignada_a_tu_turno')
 NO realices modificaciones a los desarrollos de otros colaboradores a menos de tener autorización del propietario.
 La modificación a los desarrollos implica:
 - Cambios totales o parciales de archivos individuales o en carpetas completas.

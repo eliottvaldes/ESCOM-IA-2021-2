@@ -1,0 +1,6 @@
+##Para compilar en c++ 
+
+g++ file.cpp -O -o ouputName 
+
+More info 
+https://docs.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170 

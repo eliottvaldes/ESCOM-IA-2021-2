@@ -1,3 +1,7 @@
 [submodule "FDD/Practicas/MONROY/Practicas"]
 	path = FDD/Practicas/MONROY/Practicas
 	url = https://github.com/JoseLuisMonroy/Practicas-FDDigital
+
+[submodule "AL/Practicas/MONROY/Proyecto1"]
+	path = AL/Practicas/MONROY/Proyecto1
+	url = https://github.com/JoseLuisMonroy/algebra_Lineal
