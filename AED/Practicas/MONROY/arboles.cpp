@@ -3,8 +3,8 @@
 using namespace std;
 
 ostream &operator<<(ostream &, nodo);
-void pedirNodo(nodo *);
-void agregarNodo(nodo**);
+void agregarNodo(nodo**, int);
+nodo* crearNodo(int);
 void imprimirArbol(nodo*);
 
 struct nodo {
@@ -25,7 +25,10 @@ int main(){
         cin >> opcionMenu;
         switch (opcionMenu){
         case 1:
-            agregarNodo(&arbol);
+            int valor;
+            cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
+            cin >> valor;
+            agregarNodo(arbol);
             break;
         case 2:
             imprimirArbol(arbol);
@@ -48,8 +51,19 @@ void pedirNodo(nodo *tmp){
     tmp->izquierda = NULL;
 }
 
-void agregarNodo(nodo **arbol){
+nodo* crearNodo(int valor){
+    nodo *Nuevo = NULL;
+    Nuevo->dato = valor;
+    Nuevo->derecha = NULL;
+    Nuevo->izquierda = NULL;
+    return Nuevo;
+}
 
+
+void agregarNodo(nodo *&arbol, int valor){
+    if(arbol){
+        nodo* Nuevo = crearNodo(valor);
+    }
 }
 
 void imprimirArbol(nodo*arbol){
