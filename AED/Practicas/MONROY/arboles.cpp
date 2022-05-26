@@ -12,6 +12,7 @@ struct nodo {
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
 void imprimirArbol(nodo*);
+void preorden(nodo*);
 
 int main(){
     int opcionMenu;
@@ -72,13 +73,51 @@ void agregarNodo(nodo *&arbol, int valor){
 }
 
 void imprimirArbol(nodo*arbol){
+    int opcionUsuario;
+    cout << "Con que orden desea imprimir el arbol" << endl;
+    cout << "1.- Preorden" << endl;
+    cout << "2.- Inorden" << endl;
+    cout << "3.- Postorden" << endl;
+    cout << "4.- Preorden converso" << endl;
+    cout << "5.- Inorden converso" << endl;
+    cout << "6.- Postorden converso" << endl;
+    cout << "Cualquier otro numero para regresar al menu" << endl;
+    cin >> opcionUsuario;
+    switch (opcionUsuario){
+        case 1:
+        cout << "Preorden" << endl;
+        preorden(arbol);
+        break;
+        case 2:
+        cout << "Inorden" << endl;
+        break;
+        case 3:
+        cout << "Postorden" << endl;
+        break;
+        case 4:
+        cout << "Preorden converso" << endl;
+        break;
+        case 5:
+        cout << "Inorden converso" << endl;
+        break;
+        case 6:
+        cout << "Postorden converso" << endl;
+        break;
+        default:
+        break;
+    }
+}
+
+void preorden(nodo *arbol){
     if(arbol==NULL){
         return;
     }
     cout << arbol->dato << ", ";
-    imprimirArbol(arbol->izquierda);
-    imprimirArbol(arbol->derecha);
+    preorden(arbol->izquierda);
+    preorden(arbol->derecha);
+    cout << endl;
 }
+
 
 /*ostream &operator<<(ostream &output, nodo dato){
     output << "\n Dato registrado: "<< dato.dato;
