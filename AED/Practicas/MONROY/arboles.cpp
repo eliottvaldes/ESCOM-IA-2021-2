@@ -73,7 +73,13 @@ void agregarNodo(nodo *&arbol, int valor){
 }
 
 void imprimirArbol(nodo*arbol){
-
+    if(arbol==NULL){
+        cout << "El arbol esta vacio" << endl;
+        return;
+    }
+    cout << arbol->dato << endl;
+    imprimirArbol(arbol->izquierda);
+    imprimirArbol(arbol->derecha);
 }
 
 ostream &operator<<(ostream &output, nodo dato){
