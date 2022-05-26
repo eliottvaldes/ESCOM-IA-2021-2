@@ -8,7 +8,7 @@ struct nodo {
     nodo *izquierda;
 };
 
-ostream &operator<<(ostream &, nodo);
+//ostream &operator<<(ostream &, nodo);
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
 void imprimirArbol(nodo*);
@@ -82,7 +82,7 @@ void imprimirArbol(nodo*arbol){
     imprimirArbol(arbol->derecha);
 }
 
-ostream &operator<<(ostream &output, nodo dato){
+/*ostream &operator<<(ostream &output, nodo dato){
     output << "\n Dato registrado: "<< dato.dato;
     return output;
-}
+}*/
