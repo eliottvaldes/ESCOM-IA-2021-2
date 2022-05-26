@@ -52,7 +52,6 @@ nodo* nuevoNodo(int valor){
     return Nuevo;
 }
 
-
 void agregarNodo(nodo *&arbol, int valor){
     if(arbol == NULL){
         nodo* Nuevo = nuevoNodo(valor);
@@ -76,7 +75,7 @@ void imprimirArbol(nodo*arbol){
     if(arbol==NULL){
         return;
     }
-    cout << arbol->dato << ', '<< endl;
+    cout << arbol->dato << ", ";
     imprimirArbol(arbol->izquierda);
     imprimirArbol(arbol->derecha);
 }
@@ -85,3 +84,5 @@ void imprimirArbol(nodo*arbol){
     output << "\n Dato registrado: "<< dato.dato;
     return output;
 }*/
+
+//In order to see my work check the commit line of this file in the repository 
