@@ -14,6 +14,7 @@ nodo* nuevoNodo(int);
 void imprimirArbol(nodo*);
 void preorden(nodo*);
 void inorden(nodo*);
+void postorden(nodo*);
 
 int main(){
     int opcionMenu;
@@ -86,28 +87,30 @@ void imprimirArbol(nodo*arbol){
     cin >> opcionUsuario;
     switch (opcionUsuario){
         case 1:
-        cout << "Preorden" << endl;
-        preorden(arbol);
-        break;
+            cout << "Preorden" << endl;
+            preorden(arbol);
+            break;
         case 2:
-        cout << "Inorden" << endl;
-        inorden(arbol);
-        cout << endl;
-        break;
+            cout << "Inorden" << endl;
+            inorden(arbol);
+            cout << endl;
+            break;
         case 3:
-        cout << "Postorden" << endl;
-        break;
+            cout << "Postorden" << endl;
+            postorden(arbol);
+            cout << endl;
+            break;
         case 4:
-        cout << "Preorden converso" << endl;
-        break;
+            cout << "Preorden converso" << endl;
+            break;
         case 5:
-        cout << "Inorden converso" << endl;
-        break;
+            cout << "Inorden converso" << endl;
+            break;
         case 6:
-        cout << "Postorden converso" << endl;
-        break;
+            cout << "Postorden converso" << endl;
+            break;
         default:
-        break;
+            break;
     }
 }
 
@@ -130,6 +133,14 @@ void inorden(nodo* arbol){
     inorden(arbol->derecha);
 }
 
+void postorden(nodo* arbol){
+    if(arbol==NULL){
+        return;
+    }
+    postorden(arbol->izquierda);
+    postorden(arbol->derecha);
+    cout << arbol->dato << ", ";
+}
 
 /*ostream &operator<<(ostream &output, nodo dato){
     output << "\n Dato registrado: "<< dato.dato;
