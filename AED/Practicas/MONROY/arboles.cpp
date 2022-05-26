@@ -2,16 +2,16 @@
 
 using namespace std;
 
-ostream &operator<<(ostream &, nodo);
-void agregarNodo(nodo**, int);
-nodo *crearNodo(int);
-void imprimirArbol(nodo*);
-
 struct nodo {
     int dato;
     nodo *derecha;
     nodo *izquierda;
 };
+
+ostream &operator<<(ostream &, nodo);
+void agregarNodo(nodo*&, int);
+nodo* nuevoNodo(int);
+void imprimirArbol(nodo*);
 
 int main(){
     int opcionMenu;
@@ -44,7 +44,7 @@ int main(){
     return 0;
 }
 
-nodo *crearNodo(int valor){
+nodo* nuevoNodo(int valor){
     nodo *Nuevo = NULL;
     Nuevo->dato = valor;
     Nuevo->derecha = NULL;
@@ -55,7 +55,7 @@ nodo *crearNodo(int valor){
 
 void agregarNodo(nodo *&arbol, int valor){
     if(arbol==NULL){
-        nodo* Nuevo = crearNodo(valor);
+        nodo* Nuevo = nuevoNodo(valor);
         arbol = Nuevo;
         return;
     }
