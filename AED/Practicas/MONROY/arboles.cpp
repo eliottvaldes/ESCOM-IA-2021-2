@@ -16,6 +16,7 @@ void preorden(nodo*);
 void inorden(nodo*);
 void postorden(nodo*);
 void preordenCon(nodo*);
+void inordenCon(nodo*);
 
 int main(){
     int opcionMenu;
@@ -108,6 +109,8 @@ void imprimirArbol(nodo*arbol){
             break;
         case 5:
             cout << "Inorden converso" << endl;
+            inordenCon(arbol);
+            cout << endl;
             break;
         case 6:
             cout << "Postorden converso" << endl;
@@ -154,6 +157,14 @@ void preordenCon(nodo* arbol){
     preordenCon(arbol->izquierda);
 }
 
+void inordenCon(nodo* arbol){
+    if(arbol==NULL){
+        return;
+    }
+    inordenCon(arbol->derecha);
+    cout << arbol->dato << ", ";
+    inordenCon(arbol->izquierda);
+}
 
 /*ostream &operator<<(ostream &output, nodo dato){
     output << "\n Dato registrado: "<< dato.dato;
