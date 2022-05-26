@@ -15,6 +15,7 @@ void imprimirArbol(nodo*);
 
 int main(){
     int opcionMenu;
+    int valor;
     nodo *arbol = NULL;
     do
     {
@@ -25,7 +26,6 @@ int main(){
         cin >> opcionMenu;
         switch (opcionMenu){
         case 1:
-            int valor;
             cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
             cin >> valor;
             agregarNodo(arbol, valor);
@@ -45,7 +45,7 @@ int main(){
 }
 
 nodo* nuevoNodo(int valor){
-    nodo *Nuevo = NULL;
+    nodo *Nuevo = new nodo;
     Nuevo->dato = valor;
     Nuevo->derecha = NULL;
     Nuevo->izquierda = NULL;
@@ -54,7 +54,7 @@ nodo* nuevoNodo(int valor){
 
 
 void agregarNodo(nodo *&arbol, int valor){
-    if(arbol==NULL){
+    if(arbol == NULL){
         nodo* Nuevo = nuevoNodo(valor);
         arbol = Nuevo;
         return;
@@ -74,10 +74,9 @@ void agregarNodo(nodo *&arbol, int valor){
 
 void imprimirArbol(nodo*arbol){
     if(arbol==NULL){
-        cout << "El arbol esta vacio" << endl;
         return;
     }
-    cout << arbol->dato << endl;
+    cout << arbol->dato << ', '<< endl;
     imprimirArbol(arbol->izquierda);
     imprimirArbol(arbol->derecha);
 }
