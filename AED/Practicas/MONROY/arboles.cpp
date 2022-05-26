@@ -13,6 +13,7 @@ void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
 void imprimirArbol(nodo*);
 void preorden(nodo*);
+void inorden(nodo*);
 
 int main(){
     int opcionMenu;
@@ -90,6 +91,8 @@ void imprimirArbol(nodo*arbol){
         break;
         case 2:
         cout << "Inorden" << endl;
+        inorden(arbol);
+        cout << endl;
         break;
         case 3:
         cout << "Postorden" << endl;
@@ -116,6 +119,15 @@ void preorden(nodo *arbol){
     preorden(arbol->izquierda);
     preorden(arbol->derecha);
     cout << endl;
+}
+
+void inorden(nodo* arbol){
+    if(arbol==NULL){
+        return;
+    }
+    inorden(arbol->izquierda);
+    cout << arbol->dato << ", ";
+    inorden(arbol->derecha);
 }
 
 
