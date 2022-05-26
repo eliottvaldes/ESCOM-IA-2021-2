@@ -4,7 +4,7 @@ using namespace std;
 
 ostream &operator<<(ostream &, nodo);
 void agregarNodo(nodo**, int);
-nodo* crearNodo(int);
+nodo *crearNodo(int);
 void imprimirArbol(nodo*);
 
 struct nodo {
@@ -28,7 +28,7 @@ int main(){
             int valor;
             cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
             cin >> valor;
-            agregarNodo(arbol);
+            agregarNodo(arbol, valor);
             break;
         case 2:
             imprimirArbol(arbol);
@@ -44,14 +44,7 @@ int main(){
     return 0;
 }
 
-void pedirNodo(nodo *tmp){
-    cout << "Ingrese el dato a agregar:" << endl;
-    cin >> tmp->dato;
-    tmp->derecha = NULL;
-    tmp->izquierda = NULL;
-}
-
-nodo* crearNodo(int valor){
+nodo *crearNodo(int valor){
     nodo *Nuevo = NULL;
     Nuevo->dato = valor;
     Nuevo->derecha = NULL;
@@ -61,8 +54,21 @@ nodo* crearNodo(int valor){
 
 
 void agregarNodo(nodo *&arbol, int valor){
-    if(arbol){
+    if(arbol==NULL){
         nodo* Nuevo = crearNodo(valor);
+        arbol = Nuevo;
+        return;
+    }
+    int newValor = arbol->dato;
+    if(newValor == valor){
+        cout << "El valor ya existe en el arbol" << endl;
+        return;
+    }
+    if(newValor > valor){
+        agregarNodo(arbol->izquierda, valor);
+    }
+    else{
+        agregarNodo(arbol->derecha, valor);
     }
 }
 
