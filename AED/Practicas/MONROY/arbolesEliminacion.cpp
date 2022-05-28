@@ -33,14 +33,17 @@ int main (){
             cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
             cin >> valor;
             agregarNodo(arbol, valor);
+            cout << "Nodo agregado" << endl;
             break;
         case 2:
             imprimirArbol(arbol);
+            cout << endl;
             break;
         case 3:
             cout << "Porfavor ingrese el valor del nodo a eliminar" << endl;
             cin >> valor;
             eliminarNodo(arbol, valor);
+            cout << "Nodo eliminado" << endl;
             break;
         case 4:
             cout << "Saliendo del programa" << endl;
@@ -87,4 +90,29 @@ void imprimirArbol(nodo *arbol){
     imprimirArbol(arbol->izquierda);
     cout << arbol->dato << ", ";
     imprimirArbol(arbol->derecha);
+}
+
+void eliminarNodo(nodo *&arbol, int valor){
+    if(arbol == NULL){
+        cout << "El valor no existe en el arbol" << endl;
+        return;
+    }
+    int newValor = arbol->dato;
+    if(newValor == valor){
+        if(arbol->izquierda == NULL && arbol->derecha == NULL){
+            eliminarHoja(arbol);
+        }
+        return;
+    }
+    else if(newValor > valor){
+        eliminarNodo(arbol->izquierda, valor);
+    }
+    else{
+        eliminarNodo(arbol->derecha, valor);
+    }
+}
+
+void eliminarHoja(nodo *&arbol){
+    delete arbol;
+    arbol = NULL;
 }
