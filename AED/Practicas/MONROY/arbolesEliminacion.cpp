@@ -14,7 +14,7 @@ void imprimirArbol(nodo*);
 void eliminarNodo(nodo*&,int);
 void eliminarHoja(nodo*&);
 void eliminarNodoConHijo(nodo*&, nodo*&);
-void eliminarNodoConDosHijos(nodo*&, nodo*&);
+void eliminarNodoConDosHijos(nodo*&);
 
 int main (){
     int opcionMenu;
@@ -36,7 +36,12 @@ int main (){
             cout << "Nodo agregado" << endl;
             break;
         case 2:
-            imprimirArbol(arbol);
+            if (arbol == NULL){
+                cout << "El arbol esta vacio" << endl;
+            }
+            else{
+                imprimirArbol(arbol);
+            }
             cout << endl;
             break;
         case 3:
@@ -102,6 +107,15 @@ void eliminarNodo(nodo *&arbol, int valor){
         if(arbol->izquierda == NULL && arbol->derecha == NULL){
             eliminarHoja(arbol);
         }
+        else if(arbol->izquierda == NULL && arbol->derecha != NULL && arbol->derecha->derecha == NULL && arbol->derecha->izquierda == NULL){
+            eliminarNodoConHijo(arbol, arbol->derecha);
+        }
+        else if(arbol->izquierda != NULL && arbol->derecha == NULL && arbol->izquierda->izquierda == NULL && arbol->izquierda->derecha == NULL){
+            eliminarNodoConHijo(arbol, arbol->izquierda);
+        }
+        else if(arbol->izquierda != NULL && arbol->derecha != NULL && arbol->izquierda->izquierda == NULL && arbol->izquierda->derecha == NULL && arbol->derecha->izquierda == NULL && arbol->derecha->derecha == NULL){
+            eliminarNodoConDosHijos(arbol);
+        }
         return;
     }
     else if(newValor > valor){
@@ -115,4 +129,20 @@ void eliminarNodo(nodo *&arbol, int valor){
 void eliminarHoja(nodo *&arbol){
     delete arbol;
     arbol = NULL;
+}
+
+void eliminarNodoConHijo(nodo *&arbol, nodo *&hijo){
+    int temp1 = arbol->dato;
+    arbol->dato = hijo->dato;
+    hijo->dato = temp1;
+    eliminarHoja(hijo);
+}
+
+void eliminarNodoConDosHijos(nodo *&arbol){
+    if (arbol->dato > arbol->izquierda->dato){
+        eliminarNodoConHijo(arbol, arbol->izquierda);
+    }
+    else{
+        eliminarNodoConHijo(arbol, arbol->derecha);
+    }
 }
