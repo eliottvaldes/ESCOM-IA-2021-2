@@ -1,2 +1,3 @@
 # vamos a ignorar todos los archivos .exe generados al compilar
 *.exe
+.vscode
