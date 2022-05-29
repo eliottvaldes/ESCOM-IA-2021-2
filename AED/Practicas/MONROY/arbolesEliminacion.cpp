@@ -15,6 +15,7 @@ void eliminarNodo(nodo*&,int);
 void eliminarHoja(nodo*&);
 void eliminarNodoConHijo(nodo*&, nodo*&);
 void eliminarNodoConDosHijos(nodo*&);
+void eliminacionNHijos(nodo*&);
 
 int main (){
     int opcionMenu;
@@ -40,6 +41,7 @@ int main (){
                 cout << "El arbol esta vacio" << endl;
             }
             else{
+                cout << "La raiz del arbol es: " << arbol->dato << endl;
                 imprimirArbol(arbol);
             }
             cout << endl;
@@ -116,6 +118,9 @@ void eliminarNodo(nodo *&arbol, int valor){
         else if(arbol->izquierda != NULL && arbol->derecha != NULL && arbol->izquierda->izquierda == NULL && arbol->izquierda->derecha == NULL && arbol->derecha->izquierda == NULL && arbol->derecha->derecha == NULL){
             eliminarNodoConDosHijos(arbol);
         }
+        else{
+            eliminacionNHijos(arbol);
+        }
         return;
     }
     else if(newValor > valor){
@@ -144,5 +149,28 @@ void eliminarNodoConDosHijos(nodo *&arbol){
     }
     else{
         eliminarNodoConHijo(arbol, arbol->derecha);
+    }
+}
+
+void eliminacionNHijos(nodo *&arbol){
+    if(arbol->derecha->izquierda == NULL && arbol->derecha->derecha == NULL){
+        eliminarNodoConHijo(arbol, arbol->derecha);
+    }
+    else if(arbol->izquierda->derecha == NULL && arbol->izquierda->izquierda == NULL){
+        eliminarNodoConHijo(arbol, arbol->izquierda);
+    }
+    else {
+        nodo *arbolaux = NULL;
+        arbolaux = arbol->derecha;
+        while(arbolaux->izquierda != NULL){
+            arbolaux = arbolaux->izquierda;
+        }
+        arbol->dato = arbolaux->dato;
+        arbol = arbol->derecha;
+        while(arbol->izquierda != NULL){
+            arbol = arbol->izquierda;
+        }
+        delete arbol; //! Pasa el arbol sin recorrido, por lo que se elimina desde donde se encuentra el nodo a eliminar
+        arbol = NULL;
     }
 }
