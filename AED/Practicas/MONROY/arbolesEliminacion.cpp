@@ -196,3 +196,5 @@ void eliminacionNodoN(nodo *&arbol){
         eliminacionNodoN(arbol->izquierda);
     }
 }
+
+//In order to see my work check the commit history of this file in the github repository
