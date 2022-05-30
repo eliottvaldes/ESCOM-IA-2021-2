@@ -16,6 +16,7 @@ void eliminarHoja(nodo*&);
 void eliminarNodoConHijo(nodo*&, nodo*&);
 void eliminarNodoConDosHijos(nodo*&);
 void eliminacionNHijos(nodo*&);
+void eliminacionNodoN(nodo*&);
 
 int main (){
     int opcionMenu;
@@ -166,11 +167,15 @@ void eliminacionNHijos(nodo *&arbol){
             arbolaux = arbolaux->izquierda;
         }
         arbol->dato = arbolaux->dato;
-        arbol = arbol->derecha;
-        while(arbol->izquierda != NULL){
-            arbol = arbol->izquierda;
-        }
-        delete arbol; //! Pasa el arbol sin recorrido, por lo que se elimina desde donde se encuentra el nodo a eliminar
-        arbol = NULL;
+        eliminacionNodoN(arbol->derecha);
+    }
+}
+
+void eliminacionNodoN(nodo *&arbol){
+    if(arbol->derecha == NULL && arbol->izquierda == NULL){
+        eliminarHoja(arbol);
+    }
+    else{
+        eliminacionNodoN(arbol->izquierda);
     }
 }
