@@ -50,7 +50,24 @@ int main (){
         case 3:
             cout << "Porfavor ingrese el valor del nodo a eliminar" << endl;
             cin >> valor;
-            eliminarNodo(arbol, valor);
+            if (valor == arbol->dato){
+                cout << "Elija una opcion" << endl;
+                cout << "1.- Eliminar la raiz" << endl;
+                cout << "2.- Eliminar el arbol completo" << endl;
+                cin >> opcionMenu;
+                switch (opcionMenu){
+                    case 1:
+                        eliminarNodo(arbol, valor);
+                        break;
+                    case 2:
+                        delete arbol;
+                        arbol = NULL;
+                    break;
+                }
+            }
+            else{
+                eliminarNodo(arbol, valor);
+            }
             cout << "Nodo eliminado" << endl;
             break;
         case 4:
