@@ -11,7 +11,7 @@ struct nodo {
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
 int conocerMax(nodo*);
-void conocerMin(nodo*);
+int conocerMin(nodo*);
 
 int main(){
     int opcionMenu;
@@ -37,7 +37,8 @@ int main(){
                 cout << "El " << valor << " es el valor más grande del arbol" << endl;
                 break;
             case 3:
-                conocerMin(arbol);
+                valor = conocerMin(arbol);
+                cout << "El " << valor << " es el valor menor del arbol" << endl;
                 break;
             case 4:
                 cout << "Saliendo del programa" << endl;
@@ -80,6 +81,13 @@ void agregarNodo(nodo *&arbol, int valor){
 int conocerMax(nodo *arbol){
     while(arbol->derecha != NULL){
         arbol = arbol->derecha;
+    }
+    return arbol->dato;
+}
+
+int concerMin(nodo* arbol){
+    while(arbol->izquierda != NULL){
+        arbol = arbol->izquierda;
     }
     return arbol->dato;
 }
