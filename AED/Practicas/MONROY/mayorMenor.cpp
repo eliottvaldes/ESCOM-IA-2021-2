@@ -85,9 +85,11 @@ int conocerMax(nodo *arbol){
     return arbol->dato;
 }
 
-int concerMin(nodo* arbol){
+int conocerMin(nodo* arbol){
     while(arbol->izquierda != NULL){
         arbol = arbol->izquierda;
     }
     return arbol->dato;
 }
+
+//In order to see my work check the commit history of this file in the github repository
