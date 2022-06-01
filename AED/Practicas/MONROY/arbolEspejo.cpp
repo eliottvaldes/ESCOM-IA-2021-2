@@ -10,8 +10,9 @@ struct nodo {
 
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
-void arbolEspejo(nodo*&, nodo*&);
+void espejo(nodo*&, nodo*);
 void imprimirArbol(nodo*);
+void agregarEspejo(nodo*&, int);
 
 int main(){
     int opcionMenu;
@@ -32,7 +33,9 @@ int main(){
             agregarNodo(arbol, valor);
             break;
         case 2:
-            arbolEspejo(arbol, arbolEspejo);
+            espejo(arbolEspejo, arbol);
+            imprimirArbol(arbolEspejo);
+            cout << endl;
             break;
         case 3:
             cout << "Saliendo del programa" << endl;
@@ -70,4 +73,41 @@ void agregarNodo(nodo *&arbol, int valor){
     else{
         agregarNodo(arbol->derecha, valor);
     }
+}
+
+void espejo(nodo*&arEspejo, nodo* arbol){
+    if(arbol==NULL){
+        return;
+    }
+    agregarEspejo(arEspejo, arbol->dato);
+    espejo(arEspejo, arbol->izquierda);
+    espejo(arEspejo, arbol->derecha);
+}
+
+void agregarEspejo(nodo *&arbol, int valor){
+    if(arbol == NULL){
+        nodo* Nuevo = nuevoNodo(valor);
+        arbol = Nuevo;
+        return;
+    }
+    int newValor = arbol->dato;
+    if(newValor == valor){
+        cout << "El valor ya existe en el arbol" << endl;
+        return;
+    }
+    if(newValor < valor){
+        agregarEspejo(arbol->izquierda, valor);
+    }
+    else{
+        agregarEspejo(arbol->derecha, valor);
+    }
+}
+
+void imprimirArbol(nodo *arbol){
+    if(arbol==NULL){
+        return;
+    }
+    cout << arbol->dato << ", ";
+    imprimirArbol(arbol->izquierda);
+    imprimirArbol(arbol->derecha);
 }
