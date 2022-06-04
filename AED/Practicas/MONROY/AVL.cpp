@@ -71,3 +71,12 @@ void agregarNodo(nodo *&arbol, int valor){
         agregarNodo(arbol->derecha, valor);
     }
 }
+
+void imprimirArbol(nodo*arbol){
+    if(arbol == NULL){
+        return;
+    }
+    cout << arbol->dato << ", ";
+    imprimirArbol(arbol->izquierda);
+    imprimirArbol(arbol->derecha);
+}
