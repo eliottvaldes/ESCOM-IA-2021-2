@@ -10,7 +10,7 @@ struct nodo {
 
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
-void compararArboles(nodo*, nodo*);
+int compararArboles(nodo*, nodo*);
 
 int main(){
     int opcionMenu;
@@ -30,14 +30,21 @@ int main(){
             cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
             cin >> valor;
             agregarNodo(arbolA, valor);
+            cout << "Nodo agregado" << endl;
             break;
         case 2:
             cout << "Porfavor ingrese el valor del nodo a agregar" << endl;
             cin >> valor;
             agregarNodo(arbolB, valor);
+            cout << "Nodo agregado" << endl;
             break;
         case 3:
-            compararArboles(arbolA, arbolB);
+            if(compararArboles(arbolA, arbolB)){
+                cout << "Los arboles son iguales" << endl;
+            } 
+            else {
+                cout << "Los arboles son diferentes" << endl;
+            }
             break;
         case 4:
             cout << "Saliendo del programa" << endl;
@@ -75,4 +82,14 @@ void agregarNodo(nodo *&arbol, int valor){
     else{
         agregarNodo(arbol->derecha, valor);
     }
+}
+
+int compararArboles(nodo*arbolA, nodo*arbolB){
+    if(arbolA == NULL && arbolB == NULL){
+        return true;
+    }
+    else if(arbolA != NULL && arbolB != NULL){
+        return (compararArboles(arbolA->izquierda, arbolB->izquierda) && compararArboles(arbolA->derecha, arbolB->derecha));
+    }
+    return false;
 }
