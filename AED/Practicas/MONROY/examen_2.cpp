@@ -12,7 +12,20 @@ void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
 
 int main(){
-    
+    nodo *arbol = NULL;
+    agregarNodo(arbol, 49);
+    agregarNodo(arbol, 37);
+    agregarNodo(arbol, 41);
+    agregarNodo(arbol, 13);
+    agregarNodo(arbol, 19);
+    agregarNodo(arbol, 25);
+    agregarNodo(arbol, 7);
+    agregarNodo(arbol, 89);
+    agregarNodo(arbol, 53);
+    agregarNodo(arbol, 71);
+    agregarNodo(arbol, 82);
+    agregarNodo(arbol, 60);
+    return 0;
 }
 
 nodo* nuevoNodo(int valor){
