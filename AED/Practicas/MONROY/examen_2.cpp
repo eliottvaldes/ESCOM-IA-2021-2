@@ -1,3 +1,10 @@
+/*
+    Monroy Fernández José Luis
+    2BV1
+    Ingenieria en Inteligencia Artificial
+    12/06/2022
+*/
+
 #include <iostream>
 #include <stack>
 
@@ -96,5 +103,6 @@ void impresionZigZag(nodo *arbol, int contador){
             nivelSiguiente = auxiliar;
         }
     }
-    
 }
+
+//In order to see my work check the commit history of this file in the github repository
