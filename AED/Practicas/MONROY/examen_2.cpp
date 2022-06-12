@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -10,8 +11,10 @@ struct nodo {
 
 void agregarNodo(nodo*&, int);
 nodo* nuevoNodo(int);
+void impresionZigZag(nodo*, int);
 
 int main(){
+    int contador = 1;
     nodo *arbol = NULL;
     agregarNodo(arbol, 49);
     agregarNodo(arbol, 37);
@@ -25,6 +28,7 @@ int main(){
     agregarNodo(arbol, 71);
     agregarNodo(arbol, 82);
     agregarNodo(arbol, 60);
+    impresionZigZag(arbol, contador);
     return 0;
 }
 
@@ -53,4 +57,44 @@ void agregarNodo(nodo *&arbol, int valor){
     else{
         agregarNodo(arbol->derecha, valor);
     }
+}
+
+void impresionZigZag(nodo *arbol, int contador){
+    if(arbol == NULL){
+        return;
+    }
+    stack<nodo*> nivelActual;
+    stack<nodo*> nivelSiguiente;
+    stack<nodo*> auxiliar;
+    nivelActual.push(arbol);
+    while(!nivelActual.empty()){
+        nodo* temp = nivelActual.top();
+        nivelActual.pop();
+        if(temp != NULL){
+            cout << temp->dato << ", ";
+            if(contador % 2 == 0){
+                nivelSiguiente.push(temp->izquierda);
+                nivelSiguiente.push(temp->derecha);
+                while(!nivelSiguiente.empty()){
+                    auxiliar.push(nivelSiguiente.top());
+                    nivelSiguiente.pop();
+                }
+                while(!auxiliar.empty()){
+                    nivelSiguiente.push(auxiliar.top());
+                    auxiliar.pop();
+                }
+            }
+            else{
+                nivelSiguiente.push(temp->derecha);
+                nivelSiguiente.push(temp->izquierda);
+            }
+        }
+        if(nivelActual.empty()){
+            contador++;
+            auxiliar = nivelActual;
+            nivelActual = nivelSiguiente;
+            nivelSiguiente = auxiliar;
+        }
+    }
+    
 }
