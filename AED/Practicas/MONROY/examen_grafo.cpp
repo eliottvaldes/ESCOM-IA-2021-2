@@ -94,7 +94,28 @@ int main(){
             }
         }
     }
+    
+    int grado[numeroNodos-1];
+    for (int i = 0; i < numeroNodos; i++){
+        grado[i] = 0;
+    }
+    for(int j=0; j < numeroNodos ; j++){
+        for (int k = 0; k < numeroNodos; k++)
+        {
+            if (red->matriz[k][j] == 1)
+            {
+                grado[j] ++;
+                continue;
+            }
+            else {
+                continue;
+            }
+        }
+    }
     cout << "Grado de cada componente en el grafo " << endl;
+    for(int i=0; i < numeroNodos; i++){
+        cout << "El grado del nodo " << nombres[i] << " es " << grado[i] << endl;
+    }
     return 0;
 }
 
