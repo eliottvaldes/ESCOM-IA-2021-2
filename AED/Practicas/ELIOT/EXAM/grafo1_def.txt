@@ -1,0 +1,10 @@
+6 A B E F G H
+8
+A-F
+E-A
+E-G
+H-E
+B-G
+F-E
+H-B
+G-A
