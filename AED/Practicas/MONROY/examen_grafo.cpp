@@ -64,8 +64,37 @@ int main(){
     string nombres = nombresAux;
 
     grafo *red = matrizGrafo(numeroNodos, numeroAristas);
-    
-
+    string aux;
+    for(int i = 0; i < numeroAristas; i++){
+        aux = vinculos[i];
+        for (int j = 0; j < nombres.size(); j++){
+            if (aux[0] == nombres[j]){
+                if (aux[2] == nombres[0]){
+                    red->matriz[j][0] = 1;
+                }
+                else if (aux[2] == nombres[1]){
+                    red->matriz[j][1] = 1;
+                }
+                else if (aux[2] == nombres[2]){
+                    red->matriz[j][2] = 1;
+                }
+                else if (aux[2] == nombres[3]){
+                    red->matriz[j][3] = 1;
+                }
+                else if (aux[2] == nombres[4]){
+                    red->matriz[j][4] = 1;
+                }
+                else if (aux[2] == nombres[5]){
+                    red->matriz[j][5] = 1;
+                }
+                break;
+            }
+            else {
+                continue;
+            }
+        }
+    }
+    cout << "Grado de cada componente en el grafo " << endl;
     return 0;
 }
 
