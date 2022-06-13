@@ -1,3 +1,9 @@
+/*
+    Monroy Fernández José Luis
+    2BV1
+    Ingenieria en Inteligencia Artificial
+    12/06/2022
+*/
 #include <iostream>
 
 using namespace std;
@@ -130,3 +136,5 @@ grafo *matrizGrafo(int numeroNodos, int numeroAristas){
     }
     return red;
 }
+
+//In order to see my work check the commit history of this file in the github repository
